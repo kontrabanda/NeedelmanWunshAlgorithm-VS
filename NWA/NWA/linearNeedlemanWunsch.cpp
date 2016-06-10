@@ -1,5 +1,6 @@
 #include "linearneedlemanwunsch.h"
 
+
 linearNeedlemanWunsch::linearNeedlemanWunsch(vector<char> signs, int **matrix, int punish) :
 	similarityMatrix(matrix), punishment(punish)
 {
@@ -77,6 +78,10 @@ vector<pair<int, int> > linearNeedlemanWunsch::findWaypoint(string seq1, string 
 		int* f = new int[H + 1];
 		f[0] = (i + 1)*this->punishment;
 		for (int j = 1; j <= H; j++) {
+			if (this->signsMap.find(seq1.at(j - 1)) == this->signsMap.end() || this->signsMap.find(seq2.at(i)) == this->signsMap.end())
+			{
+				throw "Invalid character";
+			}
 			int x = b[j - 1] + similarityMatrix[this->signsMap[seq1.at(j - 1)]][this->signsMap[seq2.at(i)]];
 			int y = b[j] + this->punishment;
 			int z = f[j - 1] + this->punishment;

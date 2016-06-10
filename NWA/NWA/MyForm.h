@@ -76,6 +76,8 @@ namespace NWA {
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  labelResult;
 	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
+	private: System::Windows::Forms::Button^  resultFileBtn;
+	private: System::Windows::Forms::MaskedTextBox^  resultFileInput;
 	protected:
 
 	private:
@@ -109,6 +111,8 @@ namespace NWA {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->labelResult = (gcnew System::Windows::Forms::Label());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->resultFileBtn = (gcnew System::Windows::Forms::Button());
+			this->resultFileInput = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->SuspendLayout();
 			// 
 			// seq1
@@ -117,7 +121,6 @@ namespace NWA {
 			this->seq1->Name = L"seq1";
 			this->seq1->Size = System::Drawing::Size(100, 20);
 			this->seq1->TabIndex = 0;
-			this->seq1->Text = L"AGTCA";
 			// 
 			// label1
 			// 
@@ -134,7 +137,6 @@ namespace NWA {
 			this->seq2->Name = L"seq2";
 			this->seq2->Size = System::Drawing::Size(100, 20);
 			this->seq2->TabIndex = 2;
-			this->seq2->Text = L"AGTTA";
 			// 
 			// label2
 			// 
@@ -268,11 +270,30 @@ namespace NWA {
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
 			// 
+			// resultFileBtn
+			// 
+			this->resultFileBtn->Location = System::Drawing::Point(300, 74);
+			this->resultFileBtn->Name = L"resultFileBtn";
+			this->resultFileBtn->Size = System::Drawing::Size(75, 23);
+			this->resultFileBtn->TabIndex = 21;
+			this->resultFileBtn->Text = L"Result file";
+			this->resultFileBtn->UseVisualStyleBackColor = true;
+			this->resultFileBtn->Click += gcnew System::EventHandler(this, &MyForm::resultFileBtn_Click);
+			// 
+			// resultFileInput
+			// 
+			this->resultFileInput->Location = System::Drawing::Point(390, 74);
+			this->resultFileInput->Name = L"resultFileInput";
+			this->resultFileInput->Size = System::Drawing::Size(100, 20);
+			this->resultFileInput->TabIndex = 22;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(471, 186);
+			this->ClientSize = System::Drawing::Size(521, 186);
+			this->Controls->Add(this->resultFileInput);
+			this->Controls->Add(this->resultFileBtn);
 			this->Controls->Add(this->labelResult);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label10);
@@ -301,5 +322,6 @@ private: System::Void btnCount_Click(System::Object^  sender, System::EventArgs^
 private: System::Void buttonFileSeq1_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void buttonFileSeq2_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void buttonMatrixFile_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void resultFileBtn_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

@@ -51,7 +51,7 @@ pair<vector<char>, int **> FileParser::readSimilarityMatrix(string file) {
 string FileParser::readSequence(string file) {
 	string sequence;
 	std::fstream f;
-	f.open(file, std::ios::out);
+	f.open(file, std::ios::in);
 	if (f.good())
 	{
 		getline(f, sequence);
@@ -62,4 +62,17 @@ string FileParser::readSequence(string file) {
 	}
 	return sequence;
 
+}
+
+void FileParser::saveSequences(string file, pair<string, string> sequences) {
+	std::fstream f;
+	f.open(file, std::ios::out);
+	if (f.good())
+	{
+		f << sequences.first << endl << sequences.second;
+		f.close();
+	}
+	else {
+		throw "Cannot open file";
+	}
 }

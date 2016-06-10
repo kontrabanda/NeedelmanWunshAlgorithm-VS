@@ -10,11 +10,20 @@
 
 using namespace std;
 
+/* Klasa posiadaj¹ca funkcjê obliczania globalnego dopasowania dwóch sekwencji algorytem Needelmana-Wunsha w pamiêci liniowej z liniow¹ kar¹ za przerwê. */
+
 class linearNeedlemanWunsch
 {
 public:
+	/* Konstruktor klasy.
+	signs - zbór znaków, które mog¹ wyst¹piæ w sekwencjach,
+	matrix - macierz podobieñstw,
+	punish - kara za przerwê
+	*/
 	linearNeedlemanWunsch(vector<char> signs, int **matrix, int punish = -5);
+	/* Oblicza maksymaln¹ ocenê dopasowania dwóch sekwencji.*/
 	int calculate(string seq1, string seq2);
+	/* Oblicza najlepsze dopasowanie globalne dwóch sekwencji.  */
 	pair<string, string> getBackwardPath(string seq1, string seq2);
 
 
