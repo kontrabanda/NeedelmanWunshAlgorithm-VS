@@ -78,6 +78,8 @@ namespace NWA {
 	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
 	private: System::Windows::Forms::Button^  resultFileBtn;
 	private: System::Windows::Forms::MaskedTextBox^  resultFileInput;
+	private: System::Windows::Forms::Label^  labelTime2;
+	private: System::Windows::Forms::Label^  label7;
 	protected:
 
 	private:
@@ -113,6 +115,8 @@ namespace NWA {
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->resultFileBtn = (gcnew System::Windows::Forms::Button());
 			this->resultFileInput = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->labelTime2 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// seq1
@@ -224,16 +228,16 @@ namespace NWA {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(317, 21);
+			this->label4->Location = System::Drawing::Point(287, 21);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(30, 13);
+			this->label4->Size = System::Drawing::Size(197, 13);
 			this->label4->TabIndex = 12;
-			this->label4->Text = L"Time";
+			this->label4->Text = L"Time of counting max value of alingment";
 			// 
 			// labelTime
 			// 
 			this->labelTime->AutoSize = true;
-			this->labelTime->Location = System::Drawing::Point(359, 21);
+			this->labelTime->Location = System::Drawing::Point(490, 22);
 			this->labelTime->Name = L"labelTime";
 			this->labelTime->Size = System::Drawing::Size(16, 13);
 			this->labelTime->TabIndex = 13;
@@ -251,7 +255,7 @@ namespace NWA {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(317, 46);
+			this->label5->Location = System::Drawing::Point(317, 71);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(37, 13);
 			this->label5->TabIndex = 19;
@@ -260,7 +264,7 @@ namespace NWA {
 			// labelResult
 			// 
 			this->labelResult->AutoSize = true;
-			this->labelResult->Location = System::Drawing::Point(359, 46);
+			this->labelResult->Location = System::Drawing::Point(359, 71);
 			this->labelResult->Name = L"labelResult";
 			this->labelResult->Size = System::Drawing::Size(16, 13);
 			this->labelResult->TabIndex = 20;
@@ -272,7 +276,7 @@ namespace NWA {
 			// 
 			// resultFileBtn
 			// 
-			this->resultFileBtn->Location = System::Drawing::Point(300, 74);
+			this->resultFileBtn->Location = System::Drawing::Point(300, 101);
 			this->resultFileBtn->Name = L"resultFileBtn";
 			this->resultFileBtn->Size = System::Drawing::Size(75, 23);
 			this->resultFileBtn->TabIndex = 21;
@@ -282,16 +286,36 @@ namespace NWA {
 			// 
 			// resultFileInput
 			// 
-			this->resultFileInput->Location = System::Drawing::Point(390, 74);
+			this->resultFileInput->Location = System::Drawing::Point(390, 101);
 			this->resultFileInput->Name = L"resultFileInput";
 			this->resultFileInput->Size = System::Drawing::Size(100, 20);
 			this->resultFileInput->TabIndex = 22;
+			// 
+			// labelTime2
+			// 
+			this->labelTime2->AutoSize = true;
+			this->labelTime2->Location = System::Drawing::Point(490, 46);
+			this->labelTime2->Name = L"labelTime2";
+			this->labelTime2->Size = System::Drawing::Size(16, 13);
+			this->labelTime2->TabIndex = 24;
+			this->labelTime2->Text = L"---";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(287, 45);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(165, 13);
+			this->label7->TabIndex = 23;
+			this->label7->Text = L"Time of counting global alingment";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(521, 186);
+			this->Controls->Add(this->labelTime2);
+			this->Controls->Add(this->label7);
 			this->Controls->Add(this->resultFileInput);
 			this->Controls->Add(this->resultFileBtn);
 			this->Controls->Add(this->labelResult);

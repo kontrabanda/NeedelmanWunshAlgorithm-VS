@@ -34,7 +34,8 @@ System::Void MyForm::btnCount_Click(System::Object^  sender, System::EventArgs^ 
 		clock_t t;
 		pair<string, string> path;
 		int result = 0;
-		float elapsedTime = 0;
+		float elapsedTime1 = 0;
+		float elapsedTime2 = 0;
 		if (this->checkBoxGPU->Checked) {
 
 		}
@@ -42,12 +43,17 @@ System::Void MyForm::btnCount_Click(System::Object^  sender, System::EventArgs^ 
 			linearNeedlemanWunsch lnw(matrix.first, matrix.second, -5);
 			t = clock();
 			result = lnw.calculate(sequence1, sequence2);
+			t = clock() - t;
+			elapsedTime1 = ((float)t) / CLOCKS_PER_SEC;
+
+			t = clock();
 			path = lnw.getBackwardPath(sequence1, sequence2);
 			t = clock() - t;
+			elapsedTime2 = ((float)t) / CLOCKS_PER_SEC;
 		}
-		elapsedTime = ((float)t) / CLOCKS_PER_SEC;
 		this->labelResult->Text = Convert::ToString(result);
-		this->labelTime->Text = Convert::ToString(elapsedTime) + " s";
+		this->labelTime->Text = Convert::ToString(elapsedTime1) + " s";
+		this->labelTime2->Text = Convert::ToString(elapsedTime2) + " s";
 		FileParser::saveSequences(msclr::interop::marshal_as<std::string>(this->resultFileInput->Text), path);
 	}
 	catch (char * e) {
